@@ -9,65 +9,57 @@ private:
     float marks;
 
 public:
+    // Default constructor
+    Student() {
+        rollNumber = 0;
+        name = "";
+        marks = 0.0;
+    }
 
+    // Parameterized constructor
     Student(int roll, string n, float m) {
         rollNumber = roll;
         name = n;
         marks = m;
     }
 
+    // Destructor
     ~Student() {
         cout << "Student object for " << name << " (Roll: " << rollNumber << ") deleted." << endl;
     }
 
+    // Input function
+    void input() {
+        cout << "Enter Roll Number, Name, Marks: ";
+        cin >> rollNumber >> name >> marks;
+    }
+
+    // Display function
     void display() {
         cout << "Roll Number: " << rollNumber << endl;
         cout << "Name: " << name << endl;
         cout << "Marks: " << marks << endl;
     }
-
-    int getRollNumber() {
-        return rollNumber;
-    }
-
-    string getName() {
-        return name;
-    }
-
-    float getMarks() {
-        return marks;
-    }
-
-    void setRollNumber(int roll) {
-        rollNumber = roll;
-    }
-
-    void setName(string n) {
-        name = n;
-    }
-
-    void setMarks(float m) {
-        marks = m;
-    }
 };
 
 int main() {
-    Student* student1 = new Student(101, "Arnav", 85.5);
-    Student* student2 = new Student(102, "Raj", 92.0);
-    Student* student3 = new Student(103, "Harshith", 78.5);
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
 
-    cout << "Student 1 Details:" << endl;
-    student1->display();
-    cout << endl;
-    cout << "Student 2 Details:" << endl;
-    student2->display();
-    cout << endl;
-    cout << "Student 3 Details:" << endl;
-    student3->display();
-    cout << endl;
+    Student* students = new Student[n];  // allocate array
 
-    delete student2;
-    delete student3;
+    for (int i = 0; i < n; i++) {
+        cout << "Enter details for student " << i+1 << ":" << endl;
+        students[i].input();
+    }
 
+    cout << "\nDisplaying student details:\n";
+    for (int i = 0; i < n; i++) {
+        students[i].display();
+        cout << endl;
+    }
+
+    delete[] students;  // free memory
     return 0;
-}
+}   
