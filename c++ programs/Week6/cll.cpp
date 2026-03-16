@@ -152,7 +152,7 @@ int main() {
         cout << "4. Delete from End\n";
         cout << "5. Traverse List\n";
         cout << "6. Search Element\n";
-        cout << "0. Exit\n";
+        cout << "7. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -187,7 +187,7 @@ int main() {
                 cll.search(value);
                 break;
 
-            case 0:
+            case 7:
                 cout << "Program Exited\n";
                 break;
 
@@ -195,7 +195,7 @@ int main() {
                 cout << "Invalid Choice\n";
         }
 
-    } while (choice != 0);
+    } while (choice != 7);
 
     return 0;
 }
