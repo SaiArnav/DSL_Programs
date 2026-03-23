@@ -32,6 +32,7 @@ class stack {
             cout << "Stack underflow" << endl;
         } else {
             cout << "Element popped: " << st[top] << endl;
+            st[top] = 0;
             top--;
         }
     }
